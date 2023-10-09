@@ -15,6 +15,14 @@ def main():
     st.markdown("Учебная модель поможет предсказать выживет ли человек на Титанике. Модель обучена на основе данных Titanic с использованием алгоритма GrdBosstingReg (точность 76%).")
     
     gender = st.radio("Пол:", options=["Мужской", "Женский"])
+    
+    if gender == "Мужской":
+        gender = 0
+    elif gender == "Женский":
+        gender = 1
+  
+       
+    
     age = st.slider("Возраст:", min_value=0, max_value=100, step=1)
     sibsp = st.slider("Количество братьев/сестер на борту:", min_value=0, max_value=10, step=1)
     parch = st.slider("Количество родителей/детей на борту:", min_value=0, max_value=10, step=1)
