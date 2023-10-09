@@ -1,10 +1,10 @@
-import numpy as np
 import pickle
-import pandas as pd 
 import streamlit as st
+import joblib
 
-pickle_in = open("LOGISTICREGRESSION.pkl", "rb")
-regressor = pickle.load(pickle_in)
+
+with open("LOGISTICREGRESSION.pkl", "rb") as f:
+    regressor = pickle.load(f)
 
 def predict_survived(gender, age, sibsp, parch, fare):
     prediction = regressor.predict([[gender, age, sibsp, parch, fare]])
@@ -25,11 +25,6 @@ def main():
         st.success(f"Предсказание: {prediction}")
 
 if __name__ == '__main__':
-    main() 
-    
-    
-
-
-     
+    main()
      
 
