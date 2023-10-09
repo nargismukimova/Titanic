@@ -2,9 +2,9 @@ import pickle
 import streamlit as st
 import joblib
 
+with open("LOGISTICREGRESSION.pkl", "rb") as pickle_in:
+    regressor = pickle.load(pickle_in)
 
-with open("LOGISTICREGRESSION.pkl", "rb") as f:
-    regressor = pickle.load(f)
 
 def predict_survived(gender, age, sibsp, parch, fare):
     prediction = regressor.predict([[gender, age, sibsp, parch, fare]])
